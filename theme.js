@@ -1,4 +1,8 @@
 //override theme
+
+import { createTheme } from "@mui/material";
+import { createContext, useState } from "react";
+
 //change theme if mode change
 const tokens = (mode) =>
   mode === "dark"
@@ -122,17 +126,52 @@ const themeSettings = (mode) => {
   return {
     palette: {
       mode: mode,
-      main: {
-        primary: colors.primary[500],
-      },
-      secondary: {
-        main: colors.greenAccent,
-      },
-      neutral: {},
-      background: {
-        default: colors.grey[500],
-      },
+      ...(mode === "dark"
+        ? {
+            main: {
+              primary: colors.primary[500],
+            },
+            secondary: {
+              main: colors.greenAccent[500],
+            },
+            neutral: {
+              dark: colors.grey[700],
+              main: colors.grey[500],
+              light: colors.grey[100],
+            },
+            background: {
+              default: colors.grey[500],
+            },
+          }
+        : {
+            main: {
+              primary: colors.primary[500],
+            },
+            secondary: {
+              main: colors.greenAccent[500],
+            },
+            neutral: {
+              dark: colors.grey[700],
+              main: colors.grey[500],
+              light: colors.grey[100],
+            },
+            background: {
+              default: colors.grey[500],
+            },
+          }),
     },
     typography: {},
   };
+};
+
+export const ColorThemContext = createContext();
+
+export const useMode = () => {
+  const [mode, setMode] = useState("dark");
+  const colorMode = {
+    toggelColorMode: () =>
+      setMode((previous) => (previous === "dark" ? "light" : "dark")),
+  };
+  const theme = createTheme(themeSettings(mode));
+  return [theme, colorMode];
 };
