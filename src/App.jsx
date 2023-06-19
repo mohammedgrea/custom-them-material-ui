@@ -1,13 +1,12 @@
 import { ThemeProvider, useTheme } from "@emotion/react";
 import Topbar from "./components/global/Topbar";
-import { CssBaseline, createTheme } from "@mui/material";
+import { CssBaseline } from "@mui/material";
 import { ColorThemContext, useMode } from "../theme";
 
 function App() {
   const [theme, colorMode] = useMode();
   console.log(theme);
-  // const [theme] = useTheme();
-  // console.log(theme);
+
   return (
     <ColorThemContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
