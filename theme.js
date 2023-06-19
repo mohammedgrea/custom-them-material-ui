@@ -9,14 +9,14 @@ const tokens = (mode) =>
     ? {
         grey: "rgb(17, 17, 17)",
         primary: "rgb(33, 33, 33)",
-        greenAccent: "rgb(85, 118, 141)",
+        greenAccent: "rgb(37,48,55)",
         redAccent: "rgb(169, 40, 49)",
         blueAccent: "rgb(42, 115, 221)",
       }
     : {
         grey: "rgb(255,255,255)",
         primary: "rgb(224, 224, 224)",
-        greenAccent: "rgb(68, 204, 118)",
+        greenAccent: "rgb(199,240,215)",
         redAccent: "rgb(238, 44, 76)",
         blueAccent: "rgb(42, 115, 221)",
       };
