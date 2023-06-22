@@ -7,7 +7,7 @@ import { createContext, useState } from "react";
 const tokens = (mode) =>
   mode === "dark"
     ? {
-        grey: "rgb(17, 17, 17)",
+        grey: "rgb(17, 29, 17)",
         primary: "rgb(33, 33, 33)",
         greenAccent: "rgb(37,48,55)",
         redAccent: "rgb(169, 40, 49)",
